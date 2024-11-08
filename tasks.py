@@ -27,12 +27,6 @@ def my_mlp(w, X, sigma=np.tanh):
     f = sigma(W3 @ a2)
     
     return f
-
-# Tests
-np.random.seed(123)
-w = np.random.normal(size=(6*4 + 4*7 + 7)) # vector with input weight values
-X = np.random.normal(size=(6,10)) # matrix with 6 feature values for each of 10 simulated observations
-my_mlp(w, X)
 # -----------------------------------------------
  
 # Task 2:
@@ -49,7 +43,6 @@ def MSE_func(w, X, y): # give the appropriate name and arguments
     f = my_mlp(w,X)
     MSE = np.sum((f - y)**2)
     return MSE
-
 # -----------------------------------------------
  
 # Task 3:
@@ -68,6 +61,4 @@ def dR(beta, x, y):
     dbeta_0 = 2*np.mean(beta[0]+beta[1]*x-y) # implement the above formula for dR/dβ₀
     dbeta_1 = 2*np.mean((beta[0]+beta[1]*x-y)*x) # implement the above formula for dR/dβ₁
     return np.array([dbeta_0, dbeta_1])
-
- 
 # -----------------------------------------------
